@@ -1,8 +1,11 @@
 #include "cardgenerator.h"
-
+#include <algorithm>
+#include <ctime>
+#include <cstdlib>
 
 void CardGenerator::generateAndShuffle(CardList *aList)
 {
+     std::srand ( unsigned ( std::time(0) ) );
     if(aList==0)
     {
         cout<<"Null Pointer"<<endl;
@@ -18,17 +21,18 @@ void CardGenerator::generateAndShuffle(CardList *aList)
 
 void CardGenerator::shuffle(CardList *aList)
 {
-    cout<<"comes here";
-    for(CardListIterator list_iter = aList->begin();
-        list_iter != aList->end(); list_iter++)
-    {
-        Card *c=*list_iter;
-        std::cout << c->type();
-    }
+     std::random_shuffle(aList->begin(), aList->end());
+
 }
 
 void CardGenerator::print(CardList *aList)
 {
+    for(CardListIterator list_iter = aList->begin();
+        list_iter != aList->end(); list_iter++)
+    {
+        Card *c=*list_iter;
+        std::cout << c->value()<<","<<c->type()<<endl;
+    }
 }
 
 void CardGenerator::clubs(CardList *aList)
@@ -53,7 +57,7 @@ void CardGenerator::diamonds(CardList *aList)
 
 void CardGenerator::series(CardList *aList,CardType aType)
 {
-    for(int i=0;i<=ASS;i++)
+    for(int i=Two;i<=Ass;i++)
     {
         Card *card=new Card(aType,(CardValue)i);
         aList->push_back(card);

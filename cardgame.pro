@@ -17,13 +17,18 @@ SOURCES += main.cpp \
     engine/engine.cpp \
     engine/card.cpp \
     engine/player.cpp \
-    engine/cardgenerator.cpp
+    engine/cardgenerator.cpp \
+    cardwidget.cpp \
+    gameworkspace.cpp \
+    gameboard.cpp
 
 HEADERS  += \
-    engine.h \
     engine/engine.h \
     engine/card.h \
     engine/player.h \
-    engine/cardgenerator.h
+    engine/cardgenerator.h \
+    cardwidget.h \
+    gameworkspace.h \
+    gameboard.h
 
 

@@ -1,12 +1,12 @@
 #include <QtGui/QApplication>
-#include "engine.h"
+#include "gameworkspace.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-    Engine engine;
+    GameWorkspace workspace;
+    workspace.showMaximized();
 
     
-    return 0;
+    return a.exec();
 }

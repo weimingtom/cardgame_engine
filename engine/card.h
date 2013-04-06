@@ -1,7 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <list>
+#include <vector>
 using namespace std;
 
 
@@ -15,21 +15,19 @@ enum CardType
 
 enum CardValue
 {
-    ZERO=0,
-    ONE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    QUEEN,
-    KING,
-    ASS
+    Two=0,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+    Ten,
+    Jack,
+    Queen,
+    King,
+    Ass
 
 };
 
@@ -55,7 +53,7 @@ private:
 
 };
 
-typedef list<Card *> CardList;
-typedef list<Card *>::iterator CardListIterator;
+typedef vector<Card *> CardList;
+typedef vector<Card *>::iterator CardListIterator;
 
 #endif // CARD_H
