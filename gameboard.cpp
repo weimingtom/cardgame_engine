@@ -12,12 +12,15 @@ GameBoard::GameBoard(QWidget *parent) :
     mEngine=new AssEngine();
 
 
+
     HumanPlayer *player=new HumanPlayer("poornima menon");
+    player->setEngine(mEngine);
     ComputerPlayer *cPlayer1=new ComputerPlayer("mark zuker");
+    cPlayer1->setEngine(mEngine);
     ComputerPlayer *cPlayer2=new ComputerPlayer("gokul kartha");
-
-    ComputerPlayer *cPlayer3=new ComputerPlayer("rahul kartha");
-
+    cPlayer2->setEngine(mEngine);
+    ComputerPlayer *cPlayer3=new ComputerPlayer("rahul madhav");
+    cPlayer3->setEngine(mEngine);
     mPlayers.insert(QString(player->name().c_str()),player);
     mPlayers.insert(QString(cPlayer1->name().c_str()),cPlayer1);
     mPlayers.insert(QString(cPlayer2->name().c_str()),cPlayer1);
@@ -30,17 +33,17 @@ GameBoard::GameBoard(QWidget *parent) :
 
     mEngine->start();
 
-
     mLayout=new QHBoxLayout(this);
-  //  generateCards();
+    generateCards();
     setLayout(mLayout);
+
 }
 
 void GameBoard::generateCards()
 {
-    //for(int i=0;i<mEngine->cards()->size();i++)
-   // {
-   //     CardWidget *card=new CardWidget(mEngine->cardAt(i),this);
-   //     mLayout->addWidget(card);
-   // }
+    for(int i=0;i<mPlayers["poornima menon"]->cards()->size();i++)
+     {
+         CardWidget *card=new CardWidget(mPlayers["poornima menon"]->cards()->at(i),this);
+         mLayout->addWidget(card);
+     }
 }

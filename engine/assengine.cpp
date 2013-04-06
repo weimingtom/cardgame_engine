@@ -1,4 +1,5 @@
 #include "assengine.h"
+#include <unistd.h>
 
 AssEngine::AssEngine():Engine(),mCurPlayer(-1)
 {
@@ -27,6 +28,7 @@ void AssEngine::start()
 
 void AssEngine::played(Card *aCard)
 {
+    usleep(2000);
     //keep the card to the used bin
 
     mCurPlayer++;
@@ -35,6 +37,7 @@ void AssEngine::played(Card *aCard)
         mCurPlayer=0;
     }
     Player *p1=mPlayers->at(mCurPlayer);
-    p1->onTurn();
+    if(p1)
+        p1->onTurn();
 
 }

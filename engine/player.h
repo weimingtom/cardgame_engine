@@ -8,6 +8,7 @@ using namespace std;
 
 class PlayerObserver
 {
+public:
     virtual void played(Card *aCard)=0;
 };
 
@@ -33,7 +34,7 @@ public:
         mObserver=observer;
     }
 
-private:
+protected:
     CardList *mList;
     string mName;
     PlayerObserver *mObserver;

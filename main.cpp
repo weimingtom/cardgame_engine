@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     GameWorkspace workspace;
-    //workspace.showMaximized();
+    workspace.showMaximized();
 
     
     return a.exec();

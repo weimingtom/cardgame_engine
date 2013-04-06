@@ -12,6 +12,7 @@ class CardWidget : public QWidget
 public:
     explicit CardWidget(Card *aC,QWidget *parent = 0);
     void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *);
 private:
     void generateGraphics();
     

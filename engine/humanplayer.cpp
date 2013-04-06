@@ -1,5 +1,6 @@
 #include "humanplayer.h"
 
+
 HumanPlayer::HumanPlayer(string aName):Player(aName)
 {
 
@@ -7,5 +8,7 @@ HumanPlayer::HumanPlayer(string aName):Player(aName)
 
 void HumanPlayer::onTurn()
 {
-       cout<<name()<<"MyTurn and I am a human"<<endl;
+    cout<<name()<<" : MyTurn and I am a human"<<endl;
+  //  if(mObserver)
+  //      mObserver->played(0);
 }

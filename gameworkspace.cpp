@@ -4,6 +4,7 @@
 GameWorkspace::GameWorkspace(QWidget *parent) :
     QMainWindow(parent)
 {
-    mGameBoard=new GameBoard();
-    setCentralWidget(mGameBoard);
+    mGameBoard=new GameBoard(this);
+    mGameBoard->resize(1400,300);
+
 }

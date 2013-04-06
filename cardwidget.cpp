@@ -84,10 +84,17 @@ void CardWidget::generateGraphics()
     QString fileName=QApplication::applicationDirPath()+QString("/gfx/cards/")+directory+QString("/")+prefix+suffix+QString(".svg");
    // qDebug()<<fileName;
     mImage=new QImage(fileName);
+    qDebug()<<mImage->size();
+}
+void CardWidget::resizeEvent(QResizeEvent *)
+{
+
 }
 
 void CardWidget::paintEvent(QPaintEvent *e)
 {
+
     QPainter p(this);
+    p.fillRect(rect(),QColor(qrand()%255,0,0));
     p.drawImage(rect(),*mImage);
 }
