@@ -2,6 +2,7 @@
 #define GAMEBOARD_H
 
 #include <QWidget>
+#include<QMap>
 #include <QLayout>
 #include "engine.h"
 
@@ -18,6 +19,7 @@ public slots:
 private:
     Engine *mEngine;
     QLayout *mLayout;
+    QMap<QString,Player*> mPlayers;
 };
 
 #endif // GAMEBOARD_H
