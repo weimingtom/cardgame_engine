@@ -6,7 +6,7 @@
 class ComputerPlayer : public Player
 {
 public:
-    ComputerPlayer(string aName);
+    ComputerPlayer(PlayerObserver *observer,string aName);
     void onTurn();
 };
 

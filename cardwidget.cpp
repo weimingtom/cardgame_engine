@@ -3,10 +3,23 @@
 #include<QDebug>
 #include<QApplication>
 
-CardWidget::CardWidget(Card *aC,QWidget *parent) :
-    QWidget(parent),mCard(aC)
+CardWidget::CardWidget(Card *aC,bool showIt,QWidget *parent) :
+    QWidget(parent),mCard(aC),mShow(showIt)
 {
-    generateGraphics();
+    if(showIt)
+        generateGraphics();
+    else
+    {
+        //show back cover by default
+        QString fileName=QApplication::applicationDirPath()+QString("/gfx/cards/")+QString("Blue_Back.png");
+        // qDebug()<<fileName;
+        mImage=new QImage(fileName);
+        *mImage=mImage->scaled(100,141);
+        //qDebug()<<mImage->size();
+
+        setMinimumSize(mImage->size());
+        setMaximumSize(mImage->size());
+    }
     update();
 }
 void CardWidget::generateGraphics()
@@ -82,10 +95,22 @@ void CardWidget::generateGraphics()
         break;
     }
     QString fileName=QApplication::applicationDirPath()+QString("/gfx/cards/")+directory+QString("/")+prefix+suffix+QString(".svg");
-   // qDebug()<<fileName;
+    // qDebug()<<fileName;
     mImage=new QImage(fileName);
-    qDebug()<<mImage->size();
+    *mImage=mImage->scaled(100,141);
+    //qDebug()<<mImage->size();
+
+    setMinimumSize(mImage->size());
+    setMaximumSize(mImage->size());
 }
+void CardWidget::showIt()
+{
+    mShow=true;
+    if(mImage)
+        delete mImage;
+    generateGraphics();
+}
+
 void CardWidget::resizeEvent(QResizeEvent *)
 {
 
@@ -95,6 +120,5 @@ void CardWidget::paintEvent(QPaintEvent *e)
 {
 
     QPainter p(this);
-    p.fillRect(rect(),QColor(qrand()%255,0,0));
     p.drawImage(rect(),*mImage);
 }

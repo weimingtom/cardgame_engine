@@ -20,10 +20,10 @@ SOURCES += main.cpp \
     engine/cardgenerator.cpp \
     cardwidget.cpp \
     gameworkspace.cpp \
-    gameboard.cpp \
     assengine.cpp \
     engine/humanplayer.cpp \
-    engine/computerplayer.cpp
+    engine/computerplayer.cpp \
+    carddeck.cpp
 
 HEADERS  += \
     engine/engine.h \
@@ -32,10 +32,10 @@ HEADERS  += \
     engine/cardgenerator.h \
     cardwidget.h \
     gameworkspace.h \
-    gameboard.h \
     assengine.h \
     engine/assengine.h \
     engine/humanplayer.h \
-    engine/computerplayer.h
+    engine/computerplayer.h \
+    carddeck.h
 
 

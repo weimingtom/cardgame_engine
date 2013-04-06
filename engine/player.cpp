@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(string aName):mName(aName)
+Player::Player(PlayerObserver *observer,string aName):mName(aName),mObserver(observer)
 {
     mList=new CardList;
 }

@@ -1,6 +1,6 @@
 #include "computerplayer.h"
 
-ComputerPlayer::ComputerPlayer(string aName):Player(aName)
+ComputerPlayer::ComputerPlayer(PlayerObserver *observer,string aName):Player(observer,aName)
 {
 }
 

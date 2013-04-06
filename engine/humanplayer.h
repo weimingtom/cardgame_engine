@@ -5,7 +5,7 @@
 class HumanPlayer : public Player
 {
 public:
-    HumanPlayer(string aName);
+    HumanPlayer(PlayerObserver *observer,string aName);
     void onTurn();
 };
 

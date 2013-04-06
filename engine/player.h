@@ -15,7 +15,7 @@ public:
 class Player
 {
 public:
-    Player(string name);
+    Player(PlayerObserver *observer,string name);
     virtual void onTurn()=0;
     void addCard(Card *a);
     void removeCard(Card *a);
@@ -27,11 +27,6 @@ public:
     string name() const
     {
         return mName;
-    }
-
-    void setEngine(PlayerObserver *observer)
-    {
-        mObserver=observer;
     }
 
 protected:

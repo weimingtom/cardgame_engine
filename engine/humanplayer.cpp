@@ -1,7 +1,7 @@
 #include "humanplayer.h"
 
 
-HumanPlayer::HumanPlayer(string aName):Player(aName)
+HumanPlayer::HumanPlayer(PlayerObserver *observer,string aName):Player(observer,aName)
 {
 
 }

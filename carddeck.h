@@ -4,22 +4,27 @@
 #include <QWidget>
 #include<QMap>
 #include <QLayout>
-#include "engine.h"
+#include<QLabel>
+#include "player.h"
 
-class GameBoard : public QWidget
+
+class CardDeck : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GameBoard(QWidget *parent = 0);
+    explicit CardDeck(Player *p,bool isOwn=false,QWidget *parent = 0);
 private:
     void generateCards();
 signals:
     
 public slots:
+
 private:
-    Engine *mEngine;
+    QLabel *mNameLabel;
     QLayout *mLayout;
-    QMap<QString,Player*> mPlayers;
+    Player *mPlayer;
+    bool mHuman;
+
 };
 
 #endif // GAMEBOARD_H
